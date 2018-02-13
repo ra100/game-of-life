@@ -56,7 +56,7 @@ describe('Life', () => {
       ])
     })
     test('should create new life', () => {
-      const expected = expect(
+      expect(
         life.getNewGeneration([
           [0, 0, 0, 0],
           [0, 1, 0, 0],
@@ -66,7 +66,7 @@ describe('Life', () => {
       ).toEqual([[0, 0, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 0, 0, 0]])
     })
     test('should stay as block', () => {
-      const expected = expect(
+      expect(
         life.getNewGeneration([
           [0, 0, 0, 0],
           [0, 1, 1, 0],
@@ -74,6 +74,42 @@ describe('Life', () => {
           [0, 0, 0, 0]
         ])
       ).toEqual([[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]])
+    })
+  })
+
+  describe('sum()', () => {
+    test('sum values in array', () => {
+      expect(life.sum([1, 2, 3, 4])).toBe(10)
+    })
+  })
+
+  describe('slice()', () => {
+    test('get portion of array', () => {
+      expect(life.slice([0, 1, 2, 3, 4], 2)).toEqual([1, 2, 3])
+    })
+    test('get portion from begining', () => {
+      expect(life.slice([0, 1, 2, 3, 4], 0)).toEqual([0, 1])
+    })
+    test('get portion from end', () => {
+      expect(life.slice([0, 1, 2, 3, 4], 4)).toEqual([3, 4])
+    })
+  })
+
+  describe('getCells()', () => {
+    const world = [[0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 0, 0], [0, 0, 1, 0]]
+    test('get alive state of cell', () => {
+      expect(life.getCells(world, 0, [1, 1])).toBe(0)
+    })
+    test('get alive state of one row', () => {
+      expect(life.getCells(world, world[1], [1])).toEqual([0, 0, 0, 0])
+    })
+    test('get new generation for whole world', () => {
+      expect(life.getNewGeneration(world, world, [])).toEqual([
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+      ])
     })
   })
 })

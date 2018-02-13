@@ -1,10 +1,7 @@
 const LIVENESS = [[0, 0, 0, 1], [0, 0, 1, 1]]
-const TIMEOUT = 500
 
 const isAlive = (me, neighbors) =>
-  Number.isInteger(LIVENESS[me][neighbors])
-    ? LIVENESS[me][neighbors]
-    : 0
+  Number.isInteger(LIVENESS[me][neighbors]) ? LIVENESS[me][neighbors] : 0
 
 const sum = arr => arr.reduce((a, c) => a + c, 0)
 
@@ -21,10 +18,13 @@ const countSublayer = (layer = [], position = []) =>
   )
 
 const render2DWorld = world =>
-  console.log(world.map(l => l.join(''))
-    .join('\n')
-    .replace(/0/g, ' ')
-    .replace(/1/g, 'X'))
+  console.log(
+    world
+      .map(l => l.join(''))
+      .join('\n')
+      .replace(/0/g, ' ')
+      .replace(/1/g, 'X')
+  )
 
 const getCells = (world, value, position) =>
   Number.isInteger(value)
@@ -33,26 +33,12 @@ const getCells = (world, value, position) =>
 
 const getNewGeneration = world => getCells(world, world, [])
 
-const start = () => {
-  let world = [
-    [0, 0, 0, 0, 0, 0],
-    [0, 1, 1, 0, 0, 0],
-    [0, 1, 1, 0, 0, 0],
-    [0, 0, 0, 1, 1, 0],
-    [0, 0, 0, 1, 1, 0],
-    [0, 0, 0, 0, 0, 0]
-  ]
-  setInterval(() => {
-    console.clear()
-    render2DWorld(world)
-    world = getNewGeneration(world)
-  }, TIMEOUT)
-}
-
-start()
-
 module.exports = {
-  isAlive,
   countSublayer,
-  getNewGeneration
+  getCells,
+  getNewGeneration,
+  isAlive,
+  render2DWorld,
+  slice,
+  sum
 }

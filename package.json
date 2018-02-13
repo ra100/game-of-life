@@ -2,8 +2,9 @@
   "name": "gameoflife",
   "version": "1.0.0",
   "description": "",
-  "main": "life.js",
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest test.js"
   },
   "author": "",
