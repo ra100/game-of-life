@@ -10,11 +10,8 @@ const slice = (arr = [], position = 0) =>
 
 const countSublayer = (layer = [], position = []) =>
   sum(
-    (position.length > 1 &&
-      slice(layer, position[0]).map(l =>
-        countSublayer(l, position.slice(1))
-      )) ||
-      slice(layer, position[0])
+    (position.length <= 1 && slice(layer, position[0])) ||
+      slice(layer, position[0]).map(l => countSublayer(l, position.slice(1)))
   )
 
 const render2DWorld = world =>
