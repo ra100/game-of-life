@@ -2,9 +2,9 @@ const LIVENESS = [[0, 0, 0, 1], [0, 0, 1, 1]]
 
 const isAlive = (me, neighbors) =>
   ({
-    true: (m, n) => LIVENESS[m][n],
-    false: () => 0
-  }[Number.isInteger(LIVENESS[me][neighbors])](me, neighbors))
+    true: LIVENESS[me][neighbors],
+    false: 0
+  }[Number.isInteger(LIVENESS[me][neighbors])])
 
 const sum = arr => arr.reduce((a, c) => a + c, 0)
 
@@ -14,10 +14,9 @@ const slice = (arr = [], position = 0) =>
 const countSublayer = (layer = [], position = []) =>
   sum(
     {
-      true: (lay, pos) => slice(lay, pos[0]),
-      false: (lay, pos) =>
-        slice(lay, pos[0]).map(l => countSublayer(l, pos.slice(1)))
-    }[position.length <= 1](layer, position)
+      true: () => slice(layer, position[0]),
+      false: () => slice(layer, position[0]).map(l => countSublayer(l, position.slice(1)))
+    }[position.length <= 1]()
   )
 
 const render2DWorld = world =>
@@ -30,11 +29,10 @@ const render2DWorld = world =>
   )
 
 const getCells = (world, value, position) =>
-  ({
-    true: () => isAlive(value, countSublayer(world, position) - value),
-    false: () =>
-      value.map((v, index) => getCells(world, v, [...position, index]))
-  }[Number.isInteger(value)]())
+({
+  true: () => isAlive(value, countSublayer(world, position) - value),
+  false: () => value.map((v, index) => getCells(world, v, [...position, index]))
+}[Number.isInteger(value)]())
 
 const getNewGeneration = world => getCells(world, world, [])
 

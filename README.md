@@ -42,12 +42,12 @@ is measured by `console.time()`
 
 `lifeOptim.js`
 
-0D: 2.807ms
-1D: 11.542ms
-2D: 75.150ms
-3D: 1062.137ms
-4D: 17868.797ms
-5D: 274961.129ms
+* 0D: 2.807ms
+* 1D: 11.542ms
+* 2D: 75.150ms
+* 3D: 1062.137ms
+* 4D: 17868.797ms
+* 5D: 274961.129ms
 
 |       rss | heapTotal |  heapUsed |
 |-----------|-----------|-----------|
@@ -61,12 +61,12 @@ is measured by `console.time()`
 
 `lifeIf.js`
 
-0D: 2.693ms
-1D: 12.058ms
-2D: 79.863ms
-3D: 1041.338ms
-4D: 16999.111ms
-5D: 261422.055ms
+* 0D: 2.693ms
+* 1D: 12.058ms
+* 2D: 79.863ms
+* 3D: 1041.338ms
+* 4D: 16999.111ms
+* 5D: 261422.055ms
 
 |       rss | heapTotal |  heapUsed |
 |-----------|-----------|-----------|
@@ -80,12 +80,12 @@ is measured by `console.time()`
 
 `life.js`
 
-0D: 3.228ms
-1D: 11.325ms
-2D: 80.612ms
-3D: 1146.898ms
-4D: 19576.771ms
-5D: 317014.593ms
+* 0D: 3.228ms
+* 1D: 11.325ms
+* 2D: 80.612ms
+* 3D: 1146.898ms
+* 4D: 19576.771ms
+* 5D: 317014.593ms
 
 |       rss | heapTotal |  heapUsed |
 |-----------|-----------|-----------|
