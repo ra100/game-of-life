@@ -1,7 +1,5 @@
-const LIVENESS = [[0, 0, 0, 1], [0, 0, 1, 1]]
-
 const isAlive = (me, neighbors) =>
-  Number.isInteger(LIVENESS[me][neighbors]) ? LIVENESS[me][neighbors] : 0
+  me ? (neighbors >= 2 ? 1 : 0) : neighbors === 3 ? 1 : 0
 
 const sum = arr => arr.reduce((a, c) => a + c, 0)
 
