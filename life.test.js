@@ -15,7 +15,12 @@ describe('Life', () => {
   })
 
   describe('countSublayer()', () => {
-    const world = [[0, 0, 0, 0], [1, 0, 1, 0], [0, 0, 0, 1], [0, 0, 0, 1]]
+    const world = [
+      [0, 0, 0, 0],
+      [1, 0, 1, 0],
+      [0, 0, 0, 1],
+      [0, 0, 0, 1],
+    ]
     test('should count values in 1D array', () => {
       expect(life.countSublayer([0, 1, 1, 0], [1])).toBe(2)
       expect(life.countSublayer([0, 1, 1, 0], [3])).toBe(1)
@@ -30,29 +35,46 @@ describe('Life', () => {
     })
     test('should return 9 for full grid', () => {
       const position = [1, 1]
-      const w = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+      const w = [
+        [1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1],
+      ]
       expect(life.countSublayer(w, position)).toEqual(9)
     })
     test('should return 8 for full grid', () => {
       const position = [1, 1]
-      const w = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
+      const w = [
+        [1, 1, 1],
+        [1, 0, 1],
+        [1, 1, 1],
+      ]
       expect(life.countSublayer(w, position)).toEqual(8)
     })
     test('should return 1 for single neighbor', () => {
       const position = [1, 1]
-      const w = [[0, 0, 0], [0, 0, 0], [0, 0, 1]]
+      const w = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 1],
+      ]
       expect(life.countSublayer(w, position)).toEqual(1)
     })
   })
 
   describe('getGeneration()', () => {
     test('should create dead generation', () => {
-      const world = [[0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 0, 0], [0, 0, 1, 0]]
+      const world = [
+        [0, 1, 0, 0],
+        [0, 0, 0, 1],
+        [0, 0, 0, 0],
+        [0, 0, 1, 0],
+      ]
       expect(life.getNewGeneration(world)).toEqual([
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0],
       ])
     })
     test('should create new life', () => {
@@ -61,9 +83,14 @@ describe('Life', () => {
           [0, 0, 0, 0],
           [0, 1, 0, 0],
           [1, 0, 1, 0],
-          [0, 0, 0, 0]
-        ])
-      ).toEqual([[0, 0, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 0, 0, 0]])
+          [0, 0, 0, 0],
+        ]),
+      ).toEqual([
+        [0, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 0, 0],
+      ])
     })
     test('should stay as block', () => {
       expect(
@@ -71,9 +98,14 @@ describe('Life', () => {
           [0, 0, 0, 0],
           [0, 1, 1, 0],
           [0, 1, 1, 0],
-          [0, 0, 0, 0]
-        ])
-      ).toEqual([[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]])
+          [0, 0, 0, 0],
+        ]),
+      ).toEqual([
+        [0, 0, 0, 0],
+        [0, 1, 1, 0],
+        [0, 1, 1, 0],
+        [0, 0, 0, 0],
+      ])
     })
   })
 
@@ -96,7 +128,12 @@ describe('Life', () => {
   })
 
   describe('getCells()', () => {
-    const world = [[0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 0, 0], [0, 0, 1, 0]]
+    const world = [
+      [0, 1, 0, 0],
+      [0, 0, 0, 1],
+      [0, 0, 0, 0],
+      [0, 0, 1, 0],
+    ]
     test('get alive state of cell', () => {
       expect(life.getCells(world, 0, [1, 1])).toBe(0)
     })
@@ -108,7 +145,7 @@ describe('Life', () => {
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0],
       ])
     })
   })

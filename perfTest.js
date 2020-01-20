@@ -17,9 +17,7 @@ const sw = (s, w = 9) =>
 
 const printMemory = () => {
   console.log(`| ${sw('rss')} | ${sw('heapTotal')} | ${sw('heapUsed')} |`)
-  memory.forEach(m =>
-    console.log(`| ${sw(m.rss)} | ${sw(m.heapTotal)} | ${sw(m.heapUsed)} |`)
-  )
+  memory.forEach((m) => console.log(`| ${sw(m.rss)} | ${sw(m.heapTotal)} | ${sw(m.heapUsed)} |`))
 }
 
 storeMemory()

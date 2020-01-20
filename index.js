@@ -1,5 +1,5 @@
 const life = require('./life')
-const { twoDworld } = require('./testData')
+const {twoDworld} = require('./testData')
 
 const TIMEOUT = 500
 
