@@ -25,7 +25,7 @@ describe('Life', () => {
       expect(life.countSublayer([0, 1, 1, 0], [1])).toBe(2)
       expect(life.countSublayer([0, 1, 1, 0], [3])).toBe(1)
     })
-    test('should return number of neighbors', () => {
+    test('should return number of neighbours', () => {
       const position = [1, 1]
       expect(life.countSublayer(world, position)).toEqual(2)
     })
@@ -51,7 +51,7 @@ describe('Life', () => {
       ]
       expect(life.countSublayer(w, position)).toEqual(8)
     })
-    test('should return 1 for single neighbor', () => {
+    test('should return 1 for single neighbour', () => {
       const position = [1, 1]
       const w = [
         [0, 0, 0],
@@ -119,7 +119,7 @@ describe('Life', () => {
     test('get portion of array', () => {
       expect(life.slice([0, 1, 2, 3, 4], 2)).toEqual([1, 2, 3])
     })
-    test('get portion from begining', () => {
+    test('get portion from beginning', () => {
       expect(life.slice([0, 1, 2, 3, 4], 0)).toEqual([0, 1])
     })
     test('get portion from end', () => {
