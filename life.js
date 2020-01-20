@@ -3,11 +3,11 @@ const LIVENESS = [
   [0, 0, 1, 1],
 ]
 
-const isAlive = (me, neighbors) =>
+const isAlive = (me, neighbours) =>
   ({
-    true: LIVENESS[me][neighbors],
+    true: LIVENESS[me][neighbours],
     false: 0,
-  }[Number.isInteger(LIVENESS[me][neighbors])])
+  }[Number.isInteger(LIVENESS[me][neighbours])])
 
 const sum = (arr) => arr.reduce((a, c) => a + c, 0)
 
