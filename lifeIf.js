@@ -1,4 +1,4 @@
-const isAlive = (me, neighbors) => (me ? (neighbors >= 2 ? 1 : 0) : neighbors === 3 ? 1 : 0)
+const isAlive = (me, neighbours) => (me ? (neighbours >= 2 ? 1 : 0) : neighbours === 3 ? 1 : 0)
 
 const sum = (arr) => arr.reduce((a, c) => a + c, 0)
 
